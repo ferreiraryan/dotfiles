@@ -1,0 +1,141 @@
+
+# ====================
+# Monitor Setup
+# ====================
+
+monitor=DP-3,2560x1440@99.95,0x0,1
+monitor=HDMI-A-1,1920x1080@119.88,2560x0,1,transform,3
+
+# ====================
+# Keyboard layout
+# ====================
+input {
+  kb_layout=us
+  follow_mouse=1
+  touchpad {
+    natural_scroll=true
+  }
+}
+
+# ====================
+# General Appearance
+# ====================
+
+general {
+  gaps_in=5
+  gaps_out=10
+  border_size=2
+  col.active_border=rgba(89b4faee)
+  col.inactive_border=rgba(1e1e2eee)
+}
+
+decoration {
+  rounding=10
+  blur {
+    enabled = true
+    size = 5
+    passes = 2
+  }
+}
+
+animations {
+  enabled = true
+  bezier=overshot,0.13,0.99,0.29,1.1
+
+  animation=windows,1,7,overshot
+  animation=windowsOut,1,7,overshot
+  animation=border,1,10,default
+  animation=fade,1,7,default
+  animation=workspaces,1,6,default
+}
+
+# ====================
+# Autostart
+# ====================
+
+exec-once = waybar &
+exec-once = swww init && swww img /usr/share/backgrounds/hyprland/hyprland.png
+
+# ====================
+# Keybindings
+# ====================
+
+$mainMod = SUPER
+
+bind = $mainMod, RETURN, exec, foot
+bind = $mainMod, Q, killactive,
+bind = $mainMod, M, exit,
+bind = $mainMod, V, togglefloating,
+bind = $mainMod, F, fullscreen,
+bind = $mainMod, D, exec, rofi -show drun 
+
+# Mover entre janelas com setas
+bind = $mainMod, LEFT, movefocus, l
+bind = $mainMod, RIGHT, movefocus, r
+bind = $mainMod, UP, movefocus, u
+bind = $mainMod, DOWN, movefocus, d
+
+# Trocar janelas de lugar com Super+Shift+setas
+bind = SUPER_SHIFT, LEFT, swapwindow, l
+bind = SUPER_SHIFT, RIGHT, swapwindow, r
+bind = SUPER_SHIFT, UP, swapwindow, u
+bind = SUPER_SHIFT, DOWN, swapwindow, d
+
+# Mover janelas entre monitores
+bind = $mainMod SHIFT, H, movewindow, mon:l
+bind = $mainMod SHIFT, L, movewindow, mon:r
+
+# Workspaces
+bind = $mainMod, 1, workspace, 2
+bind = $mainMod, 2, workspace, 1
+bind = $mainMod, 3, workspace, 3
+bind = $mainMod, 4, workspace, 4
+bind = $mainMod, 5, workspace, 5
+bind = $mainMod, 6, workspace, 6
+bind = $mainMod, 7, workspace, 7
+bind = $mainMod, 8, workspace, 8
+bind = $mainMod, 9, workspace, 9
+bind = $mainMod, 0, workspace, 10
+
+# Move active window to a workspace with mainMod + SHIFT + [0-9]
+bind = $mainMod SHIFT, 1, movetoworkspace, 2
+bind = $mainMod SHIFT, 2, movetoworkspace, 1
+bind = $mainMod SHIFT, 3, movetoworkspace, 3
+bind = $mainMod SHIFT, 4, movetoworkspace, 4
+bind = $mainMod SHIFT, 5, movetoworkspace, 5
+bind = $mainMod SHIFT, 6, movetoworkspace, 6
+bind = $mainMod SHIFT, 7, movetoworkspace, 7
+bind = $mainMod SHIFT, 8, movetoworkspace, 8
+bind = $mainMod SHIFT, 9, movetoworkspace, 9
+bind = $mainMod SHIFT, 0, movetoworkspace, 10
+
+
+
+
+# ====================
+# Floating Windows Rules
+# ====================
+
+windowrulev2 = float, title:^(Volume Control)$
+windowrulev2 = float, class:^(pavucontrol)$
+
+# ====================
+# Audio (default sink)
+# ====================
+
+exec-once = pw-metadata -n settings 0 set default.audio.sink string alsa_output.pci-0000_01_00.1.hdmi-stereo
+
+bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
+bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindel = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindel = ,XF86MonBrightnessUp, exec, brightnessctl s 10%+
+bindel = ,XF86MonBrightnessDown, exec, brightnessctl s 10%-
+
+
+# ====================
+# Environment PATH fix (Cargo, Rust, etc)
+# ====================
+
+env = PATH, $PATH:/home/ryck/.cargo/bin
+

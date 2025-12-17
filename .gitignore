@@ -1,0 +1,9 @@
+
+# caches/build
+**/.cache/
+**/paru/
+**/yay/
+**/pacman/
+
+# HyDE / AUR cache
+**/paru/
