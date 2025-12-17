@@ -7,3 +7,7 @@
 
 # HyDE / AUR cache
 **/paru/
+
+# local backups
+.config/nvim.bak.*
+.zshrc.bak.*
