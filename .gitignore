@@ -11,3 +11,5 @@
 # local backups
 .config/nvim.bak.*
 .zshrc.bak.*
+
+.machine.conf
