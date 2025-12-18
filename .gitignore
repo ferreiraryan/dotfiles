@@ -12,4 +12,4 @@
 .config/nvim.bak.*
 .zshrc.bak.*
 
-.machine.conf
+machine.conf
