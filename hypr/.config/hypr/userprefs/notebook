@@ -44,15 +44,15 @@ exec-once = setxkbmap -option lv3:ralt_switch us -variant intl
 
 input {
     
-    kb_layout = br
-    kb_variant =
+    kb_layout = br,us
+    kb_variant = abnt2
     kb_model =
-    kb_options = compose:ralt
+    kb_options = grp:win_space_toggle,compose:ralt
     touchpad {
-        natural_scroll = false # ou false, como preferir
-        disable_while_typing = false # Esta é a linha que resolve o problema
+        natural_scroll = false 
+        disable_while_typing = false 
     }
 }
 
 
-env = FONT, Iosevka
+
