@@ -152,3 +152,6 @@ vim.keymap.set('n', '<leader>gn', ':Neogit branch new<CR>', opts)
 -- Abrir status do Git diretamente (shortcut extra)
 vim.keymap.set('n', '<leader>gs', ':Neogit<CR>', opts)
 
+vim.api.nvim_set_keymap('v', '<leader>r', '<Plug>SnipRun', { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>r', '<Plug>SnipRun', { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>f', '<Plug>SnipRunOperator', { silent = true })

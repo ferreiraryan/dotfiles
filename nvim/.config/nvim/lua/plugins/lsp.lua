@@ -21,10 +21,11 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
-      { 'j-hui/fidget.nvim',          tag = 'legacy',                            opts = {} },
+      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
       { 'akinsho/flutter-tools.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
     },
     config = function()
+      local lspconfig = require 'lspconfig'
       -- Lista de servidores de linguagem (LSPs) completa
       local lsp_servers = {
         'ruff',
@@ -40,6 +41,7 @@ return {
         'jdtls',
         'marksman',
         'djlint',
+        'clangd',
       }
 
       local on_attach = function(client, bufnr)
@@ -89,6 +91,22 @@ return {
               on_attach = on_attach,
               capabilities = capabilities,
               filetypes = { 'html', 'css', 'scss', 'javascriptreact', 'typescriptreact', 'jinja.html', 'djangohtml' },
+            }
+          end,
+
+          ['pyright'] = function()
+            lspconfig.pyright.setup {
+              on_attach = on_attach,
+              capabilities = capabilities,
+              settings = {
+                python = {
+                  analysis = {
+                    autoSearchPaths = true,
+                    useLibraryCodeForTypes = true,
+                    typeCheckingMode = 'basic',
+                  },
+                },
+              },
             }
           end,
           ['marksman'] = function()
@@ -141,17 +159,16 @@ return {
                 end
 
                 map('n', '<leader>oi', function()
-                  vim.lsp.buf.execute_command({
+                  vim.lsp.buf.execute_command {
                     command = '_typescript.organizeImports',
                     arguments = { vim.api.nvim_buf_get_name(0) },
-                  })
+                  }
                 end, '[O]rganizar [I]mports')
               end,
               capabilities = capabilities,
               filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
             }
           end,
-
         },
       }
     end,
