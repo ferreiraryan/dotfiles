@@ -81,3 +81,6 @@ alias pact="source \$(poetry env info --path)/bin/activate"
 alias emupixel='QT_QPA_PLATFORM=xcb emulator -avd Pixel_7_API_34 -gpu swiftshader_indirect -no-snapshot-load &'
 
 export PATH="$HOME/.local/bin:$PATH"
+
+
+alias vlt='cd ~/vaults/personal && nvim'

@@ -155,3 +155,6 @@ vim.keymap.set('n', '<leader>gs', ':Neogit<CR>', opts)
 vim.api.nvim_set_keymap('v', '<leader>r', '<Plug>SnipRun', { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>r', '<Plug>SnipRun', { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>f', '<Plug>SnipRunOperator', { silent = true })
+
+-- No seu keymaps.lua ou dentro do setup do obsidian.nvim
+vim.keymap.set('n', '<leader>ov', '<cmd>ObsidianQuickSwitch<cr>', { desc = 'Abrir Vault (Quick Switch)' })

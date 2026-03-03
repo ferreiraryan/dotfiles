@@ -36,11 +36,11 @@ return {
         'html',
         'jsonls',
         'tailwindcss', -- << Reativado
-        'tsserver',
-        'dartls',
+        -- 'tsserver',
+        -- 'dartls',
         'jdtls',
         'marksman',
-        'djlint',
+        -- 'djlint',
         'clangd',
       }
 
