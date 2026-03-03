@@ -7,7 +7,6 @@ return {
   },
   config = function()
     require('code_runner').setup {
-      -- Foca no modo float ou tab para não bagunçar seu layout de janelas
       focus = true,
       startinsert = true,
       term = {
@@ -21,14 +20,15 @@ return {
           'java $fileNameWithoutExt',
         },
         python = 'python3 -u',
+        -- Ajuste para C++ com Raylib (flags de linkagem para Arch)
         cpp = {
           'cd $dir &&',
-          'g++ $fileName -o $fileNameWithoutExt &&',
+          'g++ $fileName -o $fileNameWithoutExt -lraylib -lGL -lm -lpthread -ldl -lrt -lX11 &&',
           './$fileNameWithoutExt',
         },
         c = {
           'cd $dir &&',
-          'gcc $fileName -o $fileNameWithoutExt &&',
+          'gcc $fileName -o $fileNameWithoutExt -lraylib -lGL -lm -lpthread -ldl -lrt -lX11 &&',
           './$fileNameWithoutExt',
         },
       },
