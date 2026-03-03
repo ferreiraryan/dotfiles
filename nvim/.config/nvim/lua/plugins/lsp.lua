@@ -4,7 +4,7 @@ return {
   -- 1. GERENCIADOR DE PACOTES: Mason
   {
     'williamboman/mason.nvim',
-    cmd = { 'Mason', '--log=error' },
+    cmd = { 'Mason' },
     opts = {
       ui = {
         icons = {

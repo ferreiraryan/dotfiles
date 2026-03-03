@@ -24,7 +24,19 @@ return {
       },
     },
     bigfile = { enabled = true },
-    dashboard = { enabled = true },
+    dashboard = {
+      enabled = true,
+      sections = {
+        { section = 'header' }, -- Aqui você pode colocar uma ASCII Art foda
+        { section = 'keys', gap = 1, padding = 1 },
+        { section = 'startup' },
+      },
+    },
+    styles = {
+      notification = {
+        wo = { winblend = 10 }, -- Leve transparência nas notificações
+      },
+    },
     indent = { enabled = true },
     input = { enabled = true },
     notifier = { enabled = true },
