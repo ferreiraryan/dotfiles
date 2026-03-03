@@ -15,9 +15,8 @@ return {
       },
       filetype = {
         java = {
-          'cd $dir &&',
-          'javac $fileName &&',
-          'java $fileNameWithoutExt',
+          -- Procura o gradlew subindo os diretórios e executa o run
+          'f=$(find . -name gradlew -executable -print -quit); [ -n "$f" ] && $f run || (javac $fileName && java $fileNameWithoutExt)'
         },
         python = 'python3 -u',
         -- Ajuste para C++ com Raylib (flags de linkagem para Arch)
