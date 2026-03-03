@@ -84,3 +84,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 
 alias vlt='cd ~/vaults/personal && nvim'
+alias pj='~/Documents/Projects'
+
+alias n.="nvim ."
