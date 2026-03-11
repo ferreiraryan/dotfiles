@@ -28,7 +28,7 @@ return {
       enabled = true,
       sections = {
         { section = 'header' }, -- Aqui você pode colocar uma ASCII Art foda
-        { section = 'keys', gap = 1, padding = 1 },
+        { section = 'keys',   gap = 1, padding = 1 },
         { section = 'startup' },
       },
     },
@@ -39,7 +39,16 @@ return {
     },
     indent = { enabled = true },
     input = { enabled = true },
-    notifier = { enabled = true },
+    notifier = {
+      enabled = true,
+      filter = function(notif)
+        -- Ignora se a mensagem contiver o erro específico do didChange
+        if notif.msg:find("textDocument/didChange") then
+          return false
+        end
+        return true
+      end,
+    },
     quickfile = { enabled = true },
     words = { enabled = true },
     -- Se quiser manter o Telescope por enquanto, deixe o picker desativado
