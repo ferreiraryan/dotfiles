@@ -21,7 +21,7 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
-      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+      { 'j-hui/fidget.nvim',          tag = 'legacy',                            opts = {} },
       { 'akinsho/flutter-tools.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
     },
     config = function()
@@ -124,18 +124,32 @@ return {
 
           -- Handler especial para Dart
           ['dartls'] = function()
-            require('flutter-tools').setup {}
-            require('lspconfig').dartls.setup {
-              on_attach = function(client, bufnr)
-                on_attach(client, bufnr)
-                local fmap = function(keys, func, desc)
-                  vim.keymap.set('n', keys, func, { buffer = bufnr, desc = 'Flutter: ' .. desc })
-                end
-                fmap('<leader>fr', require('flutter-tools').reload, '[F]lutter [R]eload')
-                fmap('<leader>fR', require('flutter-tools').restart, '[F]lutter [R]estart')
-                fmap('<leader>fq', require('flutter-tools').quit, '[F]lutter [Q]uit App')
-              end,
-              capabilities = capabilities,
+            require('flutter-tools').setup {
+              lsp = {
+                on_attach = function(client, bufnr)
+                  -- Chama o seu on_attach global (se existir)
+                  if on_attach then on_attach(client, bufnr) end
+
+                  local fmap = function(keys, func, desc)
+                    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = 'Flutter: ' .. desc })
+                  end
+
+                  fmap('<leader>fr', require('flutter-tools.commands').reload, '[F]lutter [R]eload')
+                  fmap('<leader>fR', require('flutter-tools.commands').restart, '[F]lutter [R]estart')
+                  fmap('<leader>fq', require('flutter-tools.commands').quit, '[F]lutter [Q]uit App')
+                end,
+                capabilities = capabilities,
+                settings = {
+                  -- Isso ajuda a evitar erros de dessincronização no Arch
+                  showTodos = true,
+                  completeFunctionCalls = true,
+                },
+                -- Força a sincronização total se o erro didChange persistir
+                flags = {
+                  allow_incremental_sync = false,
+                  debounce_text_changes = 200,
+                },
+              },
             }
           end,
           ['djlint'] = function()
