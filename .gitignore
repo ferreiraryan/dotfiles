@@ -1,4 +1,11 @@
+# Ignora o conteúdo da pasta hypr
+hypr/.config/hypr/*
 
+# Abre exceção para os arquivos específicos
+!hypr/.config/hypr/keybindings.conf
+!hypr/.config/hypr/windowrules.conf
+
+# O restante das pastas (kitty, nvim, waybar, zsh) será rastreado normalmente
 # caches/build
 **/.cache/
 **/paru/
@@ -13,3 +20,4 @@
 .zshrc.bak.*
 
 machine.conf
+**/themes

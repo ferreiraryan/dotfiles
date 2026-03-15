@@ -8,23 +8,28 @@
         "/home/ryck/.local/share/waybar/modules/custom-power.jsonc",
         "/home/ryck/.local/share/waybar/modules/custom-wbar.jsonc",
         "/home/ryck/.local/share/waybar/modules/image#profile.jsonc",
+        "/home/ryck/.local/share/waybar/modules/custom-mediaplayer.jsonc",
         "/home/ryck/.local/share/waybar/modules/custom-gpuinfo#amd.jsonc",
         "/home/ryck/.local/share/waybar/modules/hyprland-language.jsonc",
         "/home/ryck/.local/share/waybar/modules/image#wallpaper.jsonc",
         "/home/ryck/.local/share/waybar/modules/tray.jsonc",
+        "/home/ryck/.local/share/waybar/modules/group-eyecare.jsonc",
         "/home/ryck/.local/share/waybar/modules/custom-github_hyde.jsonc",
         "/home/ryck/.local/share/waybar/modules/pulseaudio#microphone.jsonc",
         "/home/ryck/.local/share/waybar/modules/hyprland-workspaces.jsonc",
         "/home/ryck/.local/share/waybar/modules/custom-sensorsinfo.jsonc",
+        "/home/ryck/.local/share/waybar/modules/temperature.jsonc",
         "/home/ryck/.local/share/waybar/modules/custom-gpuinfo.jsonc",
         "/home/ryck/.local/share/waybar/modules/custom-theme.jsonc",
         "/home/ryck/.local/share/waybar/modules/custom-cpuinfo.jsonc",
         "/home/ryck/.local/share/waybar/modules/hyprland-window.jsonc",
         "/home/ryck/.local/share/waybar/modules/custom-cliphist.jsonc",
+        "/home/ryck/.local/share/waybar/modules/group-hide-tray.jsonc",
         "/home/ryck/.local/share/waybar/modules/hyprland-workspaces#roman.jsonc",
         "/home/ryck/.local/share/waybar/modules/idle_inhibitor.jsonc",
         "/home/ryck/.local/share/waybar/modules/pulseaudio.jsonc",
         "/home/ryck/.local/share/waybar/modules/custom-cava.jsonc",
+        "/home/ryck/.local/share/waybar/modules/mpd.jsonc",
         "/home/ryck/.local/share/waybar/modules/custom-weather.jsonc",
         "/home/ryck/.local/share/waybar/modules/clock.jsonc",
         "/home/ryck/.local/share/waybar/modules/backlight.jsonc",
@@ -47,15 +52,18 @@
         "/home/ryck/.local/share/waybar/modules/privacy.jsonc",
         "/home/ryck/.local/share/waybar/modules/mpris.jsonc",
         "/home/ryck/.local/share/waybar/modules/custom-gamemode.jsonc",
+        "/home/ryck/.local/share/waybar/modules/gamemode.jsonc",
         "/home/ryck/.local/share/waybar/modules/custom-keybindhint.jsonc",
         "/home/ryck/.local/share/waybar/modules/custom-swaync.jsonc",
+        "/home/ryck/.local/share/waybar/modules/group-volumecontrol.jsonc",
         "/home/ryck/.local/share/waybar/modules/power-profiles-daemon.jsonc",
         "/home/ryck/.local/share/waybar/modules/custom-clipboard.jsonc",
         "/home/ryck/.local/share/waybar/modules/network#bandwidth.jsonc",
         "/home/ryck/.local/share/waybar/modules/custom-powermenu.jsonc",
         "/home/ryck/.local/share/waybar/modules/cpu.jsonc",
         "/home/ryck/.local/share/waybar/modules/custom-workflows.jsonc",
-        "/home/ryck/.local/share/waybar/modules/memory.jsonc"
+        "/home/ryck/.local/share/waybar/modules/memory.jsonc",
+        "/home/ryck/.local/share/waybar/modules/group-mediaplayer.jsonc"
     ],
     "privacy": {
         "icon-size": 10,
@@ -76,5 +84,6 @@
     "wlr/taskbar": {
         "icon-size": 16,
         "icon-size-multiplier": 1.6
-    }
+    },
+    "position": "top"
 }
